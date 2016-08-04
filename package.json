@@ -1,0 +1,23 @@
+{
+	"name": "prom-pb-client",
+	"version": "1.0.0",
+	"description": "",
+	"main": "prom-pb-client.js",
+	"scripts": {
+		"prepproto": "cat metrics.proto.url | xargs curl -s -o metrics.proto",
+		"prepjson": "pbjs metrics.proto > metrics.json",
+		"prep": "npm run prepproto; npm run prepjson",
+		"preinstall": "npm run prep",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://archive.voodoowarez.com/prom-pb-client"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "X",
+	"dependencies": {
+		"protobufjs": "^5.0.1"
+	}
+}

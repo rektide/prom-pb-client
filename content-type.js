@@ -44,7 +44,11 @@ Object.defineProperties(module.exports.compactText, {
 })
 
 
-// for a given content type, find matches
+/**
+  For a given content type, find known matches.
+  @param {string} type - the content-type
+  @param {Object} quals - parameters on the content type.
+*/
 function find( type, quals){
 	if( type!= "application/vnd.google.protobuf"&& quals.proto!= "io.prometheus.client.MetricFamily"){
 		return
@@ -69,3 +73,26 @@ Object.defineProperties( module.exports,{
 	}
 })
 
+/**
+  Resolve a single content type into a type
+  @param {string} str - the content type to lookup
+  @param {bool} raw - if true, return the parsed content-type without trying to look it up
+*/
+function typeParse(str, raw){
+	var
+	  frags= str.split(";"),
+	  type= frags.pop(),
+	  quals= {}
+	for( var i= 0; i< frags.length; ++i){
+		var split= frags.split("=", 1)
+		quals[split[0]]= split[1]|| null
+	}
+	if( raw!== true){
+		return find(type, quals)
+	}else{
+		return {
+			type: type,
+			quals: quals
+		}
+	}
+}

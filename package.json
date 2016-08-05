@@ -6,6 +6,7 @@
 	"scripts": {
 		"prepproto": "cat metrics.proto.url | xargs curl -s -o metrics.proto",
 		"prepjson": "pbjs metrics.proto > metrics.json",
+		"prepcommonjs": "pbjs metrics.proto -t commonjs > metrics.js",
 		"prep": "npm run prepproto; npm run prepjson",
 		"preinstall": "npm run prep",
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -19,5 +20,9 @@
 	"license": "X",
 	"dependencies": {
 		"protobufjs": "^5.0.1"
+	},
+	"devDependencies": {
+		"koa": "^2.0.0-alpha.4",
+		"koa-compress": "^2.0.0"
 	}
 }

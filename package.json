@@ -21,7 +21,8 @@
 	"dependencies": {
 		"bytebuffer": "^5.0.1",
 		"performance-now": "^0.2.0",
-		"protobufjs": "^5.0.1"
+		"protobufjs": "^5.0.1",
+		"tdigest": "^0.1.1"
 	},
 	"devDependencies": {
 		"koa": "^2.0.0-alpha.4",

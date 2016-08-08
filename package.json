@@ -19,6 +19,8 @@
 	"author": "",
 	"license": "X",
 	"dependencies": {
+		"bytebuffer": "^5.0.1",
+		"performance-now": "^0.2.0",
 		"protobufjs": "^5.0.1"
 	},
 	"devDependencies": {

@@ -9,7 +9,7 @@ var
 function params( opts, defaults){
 	defaults= defaults|| {
 		port: 9101,
-		threshold: 160
+		threshold: 80
 	}
 	var env= {
 		port: Number.parseInt( process.env.NODE_PORT|| process.env.PORT),
@@ -43,6 +43,8 @@ function server( opts){
 	if( opts.port){
 		server.listen( opts.port)
 	}
+	opts.server= server
+	return opts
 }
 
 function main(){
@@ -52,6 +54,7 @@ function main(){
 
 module.exports= server
 module.exports.main= main
+module.exports.koaHandler= handler
 
 if( require.main=== module){
 	main()

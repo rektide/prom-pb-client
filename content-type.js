@@ -1,7 +1,7 @@
 "use strict"
 
 var
-  delimited= "application/vnd.google.protobuf; proto=io.prometheus.client.MetricFamily; encoding=delimited",
+  delimited= "application/vnd.google.protobuf;proto=io.prometheus.client.MetricFamily;encoding=delimited",
   text= "application/vnd.google.protobuf; proto=io.prometheus.client.MetricFamily; encoding=text",
   compact= "application/vnd.google.protobuf; proto=io.prometheus.client.MetricFamily; encoding=compact-text"
 

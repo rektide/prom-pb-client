@@ -4,7 +4,6 @@ var
   ByteBuffer= require("bytebuffer"),
   ContentType= require("./content-type")
 
-
 function setMetricFamily( metrics, ctx){
 	ctx.body= metrics.encodeDelimited().toBuffer()
 	ctx.type= ContentType.delimited.toString()
@@ -43,7 +42,7 @@ function koaHandler( ctx, next){
 				if( !ctx.body.then){
 					set( ctx.body, ctx)
 				}else{
-					ctx.body.then(function(body){
+					return ctx.body.then(function(body){
 						set(body, ctx)
 					})
 				}

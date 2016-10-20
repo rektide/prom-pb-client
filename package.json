@@ -1,6 +1,6 @@
 {
 	"name": "prom-pb-client",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Prometheus.io client based on protobuf.js",
 	"main": "prom-pb-client.js",
 	"scripts": {
@@ -15,7 +15,10 @@
 		"type": "git",
 		"url": "https://archive.voodoowarez.com/prom-pb-client"
 	},
-	"keywords": ["prometheus", "metrics"],
+	"keywords": [
+		"prometheus",
+		"metrics"
+	],
 	"author": "rektide de la faye",
 	"license": "X",
 	"dependencies": {
@@ -26,6 +29,7 @@
 	},
 	"devDependencies": {
 		"koa": "^2.0.0-alpha.4",
-		"koa-compress": "^2.0.0"
+		"koa-compress": "^2.0.0",
+		"protobufjs": "^5.0.1"
 	}
 }

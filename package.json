@@ -1,6 +1,6 @@
 {
 	"name": "prom-pb-client",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "Prometheus.io client based on protobuf.js",
 	"main": "prom-pb-client.js",
 	"scripts": {
@@ -28,7 +28,6 @@
 	},
 	"devDependencies": {
 		"koa": "^2.0.0-alpha.4",
-		"koa-compress": "^2.0.0",
-		"protobufjs": "^5.0.1"
+		"koa-compress": "^2.0.0"
 	}
 }

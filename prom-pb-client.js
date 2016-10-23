@@ -1,7 +1,7 @@
 "use strict"
 
 var
-  metrics= require( "./metrics").io.prometheus.client,
+  metrics= require( "./metrics").
   util= require( "util")
 
 // Counter+ gauge
@@ -10,8 +10,8 @@ function inc( n){
 	return this
 }
 
-metrics.Counter.prototype.inc= metrics.Gauge.prototype.inc= inc
-metrics.Counter.prototype.reset= metrics.Gauge.prototype.reset= (function reset(){
+metrics.messages.Counter.prototype.inc= metrics.Gauge.prototype.inc= inc
+metrics.messages.Counter.prototype.reset= metrics.Gauge.prototype.reset= (function reset(){
 	this.value= 0
 	return this
 })
@@ -49,11 +49,11 @@ function track(){
 	}
 	return end
 }
-metrics.Gauge.prototype.dec= dec
-metrics.Gauge.prototype.set= set
-metrics.Gauge.prototype.setToCurrentTime= setToCurrentTime
-metrics.Gauge.prototype.trackPromise= trackPromise
-metrics.Gauge.prototype.track= track
+metrics.messages.Gauge.prototype.dec= dec
+metrics.messages.Gauge.prototype.set= set
+metrics.messages.Gauge.prototype.setToCurrentTime= setToCurrentTime
+metrics.messages.Gauge.prototype.trackPromise= trackPromise
+metrics.messages.Gauge.prototype.track= track
 
 // Summary override
 var _td= function(){
@@ -61,11 +61,11 @@ var _td= function(){
 	return _td
 }
 function Summary(){
-	metrics.Summary.apply(this, arguments)
+	metrics.messages.Summary.apply(this, arguments)
 	this.td= new _td()
 	return this
 }
-util.inherits(Summary, metrics.Summary)
+util.inherits(Summary, metrics.messages.Summary)
 Summary.prototype.observe= (function observe( n){
 	++this.sample_count
 	this.sample_sum+= n
@@ -81,14 +81,14 @@ Summary.prototype.percentile= function(){
 	this.td.compress()
 	this.quantile= Array.prototype.map.call( arguments, function(percentile){
 		var value= this.td.percentile( percentile)
-		return new metrics.Quantile( percentile, value)
+		return new metrics.messages.Quantile( percentile, value)
 	})
 	return this
 }
 
 // Export default protobufs
-for( var i in metrics){
-	module.exports[ i]= metrics[ i]
+for( var i in metrics.messages){
+	module.exports[ i]= metrics.messages[ i]
 }
 // Overwritten protobufs
 module.exports.Summary= Summary

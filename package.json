@@ -1,6 +1,6 @@
 {
 	"name": "prom-pb-client",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "Prometheus.io client based on protobuf.js",
 	"main": "prom-pb-client.js",
 	"scripts": {

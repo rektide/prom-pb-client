@@ -1,13 +1,13 @@
 {
 	"name": "prom-pb-client",
-	"version": "1.0.5",
+	"version": "1.0.7",
 	"description": "Prometheus.io client based on protobuf.js",
 	"main": "prom-pb-client.js",
 	"scripts": {
 		"prepproto": "cat metrics.proto.url | xargs curl -s -o metrics.proto",
 		"prepjson": "pbjs metrics.proto > metrics.json",
 		"prepcommonjs": "pbjs metrics.proto -t commonjs > metrics.js",
-		"postinstall": "npm run prepproto; npm run prepjson",
+		"postinstall": "npm run prepproto && npm run prepjson && npm run prepcommonjs",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {

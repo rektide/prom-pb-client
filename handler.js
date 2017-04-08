@@ -11,8 +11,8 @@ function setMetricFamily( metrics, ctx){
 
 function setMetricFamilies( metricsArray, ctx){
 	var byteBuffer= ByteBuffer.allocate(8191)
-	for(var i= 0; i< metrics.length; ++i){
-		metrics.encodeDelimited( byteBuffer)
+	for(var i= 0; i< metricsArray.length; ++i){
+		metricsArray.encodeDelimited( byteBuffer)
 	}
 	ctx.body= byteBuffer.toBuffer()
 	ctx.type= ContentType.delimited.toString()
